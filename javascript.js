@@ -1,3 +1,7 @@
+let first_number;
+let second_number;
+let op;
+
 btn_one = document.querySelector('#btn_one');
 btn_two = document.querySelector('#btn_two');
 btn_three = document.querySelector('#btn_three');
@@ -66,33 +70,81 @@ btn_zero.addEventListener('click',() =>{
 });
 
 
-// const add = function(){
-//     let op = '+';
-//     first_number_string = document.getElementById('input').getAttribute("value");
-//     first_number_final = parseInt(first_number_string);
-//     document.getElementById('input').setAttribute('value',document.getElementById('input').getAttribute("value") + '+');
-// };
-
-const subtract = function(){
-    let op = '-';
+const add = function(a,b){
+    return a+b;
 };
 
-const multiply = function(){
-    let op = '*';
+const subtract = function(a,b){
+    return a-b;
 };
 
-const divide = function(){
-    let op = '/';
+const multiply = function(a,b){
+    return a*b;
 };
 
-const operate = function(){
-    let op ;
+const divide = function(a,b){
+    if(b === 0){
+        alert("Warning!! Divide by 0 !!");
+    }
+    else
+    {
+        return a/b;
+    }
 };
 
+btn_plus.addEventListener('click',()=>{
+    op = '+';
+    first_number =parseInt(document.getElementById('input').getAttribute("value"));
+    document.getElementById('input').setAttribute('value','');
+});
 
-// btn_plus.addEventListener('click',()=>{
-//     let op = '+';
-//     first_number_string = document.getElementById('input').getAttribute("value");
-//     first_number_final = parseInt(first_number_string);
-//     document.getElementById('input').setAttribute('value','+');
-// });
+btn_minus.addEventListener('click',()=>{
+    op = '-';
+    first_number =parseInt(document.getElementById('input').getAttribute("value"));
+    document.getElementById('input').setAttribute('value','');
+});
+
+btn_multipl.addEventListener('click',()=>{
+    op = '*';
+    first_number =parseInt(document.getElementById('input').getAttribute("value"));
+    document.getElementById('input').setAttribute('value','');
+});
+
+btn_divide.addEventListener('click',()=>{
+    op = '/';
+    first_number =parseInt(document.getElementById('input').getAttribute("value"));
+    document.getElementById('input').setAttribute('value','');
+});
+
+btn_equal.addEventListener('click',()=>{
+    second_number =parseInt(document.getElementById('input').getAttribute("value"));
+    document.getElementById('input').setAttribute('value','');
+
+    if(op === '+')
+    {
+        let result = add(first_number,second_number);
+        document.getElementById('input').setAttribute('value',result);
+    }
+    else if(op === '-')
+    {
+        let result = subtract(first_number,second_number);
+        document.getElementById('input').setAttribute('value',result);
+    }
+    else if(op === '*')
+    {
+        let result = multiply(first_number,second_number);
+        document.getElementById('input').setAttribute('value',result);
+    }
+    else if(op === '/')
+    {
+        let result = divide(first_number,second_number);
+        document.getElementById('input').setAttribute('value',result);
+    }
+});
+
+btn_clear.addEventListener('click',()=>{
+    document.getElementById('input').setAttribute('value','');
+    first_number = 0;
+    second_number = 0;
+    op = '';
+});
