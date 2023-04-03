@@ -1,12 +1,13 @@
 .container {
-    border-color: black;
-    border-style: solid;
+    border-style: none;
     height: 70vh;
     width: 30vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10vh;
     text-align: center;
+    background-color: #b3ffcc;
+    border-radius: 15px;
 }
 
 input {
@@ -19,8 +20,17 @@ input {
 button {
     width: 6vw;
     height: 8vh;
+    margin: 2px;
     font-size: 20px;
     font-weight: bold;
+    background-color: #66d9ff;
+    border-style: none;
+    border-radius: 15px;
+    color: white;
+}
+
+button:hover {
+    color: black;
 }
 
 .buttons {
