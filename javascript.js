@@ -93,31 +93,35 @@ const divide = function(a,b){
 };
 
 btn_plus.addEventListener('click',()=>{
+    op = '';
     op = '+';
-    first_number =parseInt(document.getElementById('input').getAttribute("value"));
+    first_number =parseFloat(document.getElementById('input').getAttribute("value"));
     document.getElementById('input').setAttribute('value','');
 });
 
 btn_minus.addEventListener('click',()=>{
+    op = '';
     op = '-';
-    first_number =parseInt(document.getElementById('input').getAttribute("value"));
+    first_number =parseFloat(document.getElementById('input').getAttribute("value"));
     document.getElementById('input').setAttribute('value','');
 });
 
 btn_multipl.addEventListener('click',()=>{
+    op = '';
     op = '*';
-    first_number =parseInt(document.getElementById('input').getAttribute("value"));
+    first_number =parseFloat(document.getElementById('input').getAttribute("value"));
     document.getElementById('input').setAttribute('value','');
 });
 
 btn_divide.addEventListener('click',()=>{
+    op = '';
     op = '/';
-    first_number =parseInt(document.getElementById('input').getAttribute("value"));
+    first_number =parseFloat(document.getElementById('input').getAttribute("value"));
     document.getElementById('input').setAttribute('value','');
 });
 
 btn_equal.addEventListener('click',()=>{
-    second_number =parseInt(document.getElementById('input').getAttribute("value"));
+    second_number =parseFloat(document.getElementById('input').getAttribute("value"));
     document.getElementById('input').setAttribute('value','');
 
     if(op === '+')
@@ -137,7 +141,7 @@ btn_equal.addEventListener('click',()=>{
     }
     else if(op === '/')
     {
-        let result = divide(first_number,second_number);
+        let result = parseFloat(divide(first_number,second_number)).toFixed(2);
         document.getElementById('input').setAttribute('value',result);
     }
 });
